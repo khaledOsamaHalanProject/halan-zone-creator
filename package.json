@@ -10,6 +10,7 @@
     },
     "dependencies": {
         "@googlemaps/js-api-loader": "^1.12.9",
+        "downloadjs": "^1.4.7",
         "google": "^2.1.0",
         "nuxt": "^2.15.8",
         "polygon-overlap": "^1.0.5",

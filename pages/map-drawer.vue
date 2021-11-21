@@ -1,6 +1,9 @@
 <template>
   <div style="position: relative">
     <div id="map"></div>
+    <button class="downlaod" @click="downloadHandler">
+      Download Zones as a json file
+    </button>
     <div
       v-if="
         showCreateZonePopup ||
@@ -62,6 +65,8 @@ import baseUrls from "../network/_baseUrls.json";
 import endpoints from "../network/endPoints";
 import requests from "../network/requests";
 import R from "../assets/R";
+
+import download from "downloadjs";
 
 import overlap from "polygon-overlap";
 
@@ -314,6 +319,8 @@ export default {
             this.zoneMarkers = [];
             this.zoneLines.forEach((ele) => ele.setMap(null));
             this.zoneLines = [];
+            this.zoneName = "";
+            this.colorCode = "";
           } else if (
             res.message ===
             "Please make sure you add label, color and zones array"
@@ -394,6 +401,9 @@ export default {
       this.zoneMarkers = [];
       this.zoneLines.forEach((ele) => ele.setMap(null));
       this.zoneLines = [];
+    },
+    downloadHandler() {
+      download(JSON.stringify(this.zones), "zones.json", "text/plain");
     },
   },
   beforeMount() {},
@@ -530,5 +540,35 @@ button.submit {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.downlaod {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: none padding-box rgb(255, 255, 255);
+  display: table-cell;
+  border: 0px;
+  margin: 0px;
+  padding: 0px 17px;
+  text-transform: none;
+  appearance: none;
+  cursor: pointer;
+  user-select: none;
+  direction: ltr;
+  overflow: hidden;
+  text-align: center;
+  height: 40px;
+  vertical-align: middle;
+  color: rgb(86, 86, 86);
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 18px;
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  box-shadow: rgb(0 0 0 / 30%) 0px 1px 4px -1px;
+  min-width: 66px;
+}
+.downlaod:hover {
+  background: none padding-box rgb(193 193 193);
+  color: #000;
 }
 </style>
