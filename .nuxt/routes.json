@@ -1,0 +1,16 @@
+[
+  {
+    "name": "map-drawer",
+    "path": "/map-drawer",
+    "component": "/media/khaled/HDD_1TB/frontend-developer-challenge_halan-actuall/pages/map-drawer.vue",
+    "chunkName": "pages/map-drawer",
+    "_name": "_113b6f12"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/media/khaled/HDD_1TB/frontend-developer-challenge_halan-actuall/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_521a1872"
+  }
+]
