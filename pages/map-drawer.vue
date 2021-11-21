@@ -309,7 +309,6 @@ export default {
               points: this.zoneLocations,
               color: this.colorCode,
             });
-
             this.currZone.setOptions({ id: this.zoneName });
             this.currZone.setOptions({ strokeColor: this.colorCode });
             this.currZone.setOptions({ fillColor: this.colorCode });
@@ -408,6 +407,19 @@ export default {
   },
   beforeMount() {},
   mounted() {
+    let reload = (function () {
+      var executed = false;
+      return function () {
+        if (!executed) {
+          executed = true;
+          setTimeout(() => {
+            // location.reload();
+          }, 500);
+        }
+      };
+    })();
+
+    reload();
     requests
       .getData(baseUrls.zones + endpoints.zonesGetCreate, {
         Authorization: `Bearer ${window.localStorage.token}`,
