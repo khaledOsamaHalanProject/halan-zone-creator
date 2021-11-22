@@ -405,21 +405,7 @@ export default {
       download(JSON.stringify(this.zones), "zones.json", "text/plain");
     },
   },
-  beforeMount() {},
   mounted() {
-    let reload = (function () {
-      var executed = false;
-      return function () {
-        if (!executed) {
-          executed = true;
-          setTimeout(() => {
-            // location.reload();
-          }, 500);
-        }
-      };
-    })();
-
-    reload();
     requests
       .getData(baseUrls.zones + endpoints.zonesGetCreate, {
         Authorization: `Bearer ${window.localStorage.token}`,
